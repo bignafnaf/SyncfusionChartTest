@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="SyncfusionChartTest.Views.ChartView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+
+    <StackLayout x:Name="stack">
+
+        <StackLayout.Resources>
+            <ResourceDictionary>
+
+                <DataTemplate x:Key="toolTipTemplate1">
+                    <StackLayout BackgroundColor="#404041">
+                        <Label
+                            Grid.Row="0"
+                            Margin="0"
+                            FontAttributes="Bold"
+                            FontFamily="Helvetica"
+                            FontSize="12"
+                            HorizontalTextAlignment="Center"
+                            Text="Germany"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                        <BoxView
+                            Margin="0"
+                            HeightRequest="0.75"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Color="White" />
+                        <StackLayout
+                            Margin="0"
+                            Padding="3"
+                            BackgroundColor="#404041"
+                            Orientation="Horizontal"
+                            Spacing="0"
+                            VerticalOptions="FillAndExpand">
+                            <Label
+                                Margin="0"
+                                FontAttributes="Bold"
+                                FontFamily="Helvetica"
+                                FontSize="12"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Name}"
+                                TextColor="#CCCCCC"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Margin="0"
+                                FontAttributes="Bold"
+                                FontFamily="Helvetica"
+                                FontSize="12"
+                                HorizontalOptions="EndAndExpand"
+                                Text="{Binding Value, StringFormat=' :  {0}%'}"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+
+                <DataTemplate x:Key="toolTipTemplate2">
+                    <StackLayout BackgroundColor="#404041">
+                        <Label
+                            Grid.Row="0"
+                            Margin="0"
+                            FontAttributes="Bold"
+                            FontFamily="Helvetica"
+                            FontSize="12"
+                            HorizontalTextAlignment="Center"
+                            Text="England"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                        <BoxView
+                            Grid.Row="1"
+                            Margin="0"
+                            HeightRequest="0.75"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Color="White" />
+                        <StackLayout
+                            Margin="0"
+                            Padding="3"
+                            BackgroundColor="#404041"
+                            Orientation="Horizontal"
+                            Spacing="0"
+                            VerticalOptions="FillAndExpand">
+                            <Label
+                                Margin="0"
+                                FontAttributes="Bold"
+                                FontFamily="Helvetica"
+                                FontSize="12"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Name}"
+                                TextColor="#CCCCCC"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Margin="0"
+                                FontAttributes="Bold"
+                                FontFamily="Helvetica"
+                                FontSize="12"
+                                HorizontalOptions="EndAndExpand"
+                                Text="{Binding Value, StringFormat=' :  {0}%'}"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+
+                <DataTemplate x:Key="toolTipTemplate3">
+                    <StackLayout BackgroundColor="#404041">
+                        <Label
+                            Grid.Row="0"
+                            Margin="0"
+                            FontAttributes="Bold"
+                            FontFamily="Helvetica"
+                            FontSize="12"
+                            HorizontalTextAlignment="Center"
+                            Text="France"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                        <BoxView
+                            Grid.Row="1"
+                            Margin="0"
+                            HeightRequest="0.75"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Color="White" />
+                        <StackLayout
+                            Margin="0"
+                            Padding="3"
+                            BackgroundColor="#404041"
+                            Orientation="Horizontal"
+                            Spacing="0"
+                            VerticalOptions="FillAndExpand">
+                            <Label
+                                Margin="0"
+                                FontAttributes="Bold"
+                                FontFamily="Helvetica"
+                                FontSize="12"
+                                HorizontalOptions="StartAndExpand"
+                                Text="{Binding Name}"
+                                TextColor="#CCCCCC"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Margin="0"
+                                FontAttributes="Bold"
+                                FontFamily="Helvetica"
+                                FontSize="12"
+                                HorizontalOptions="EndAndExpand"
+                                Text="{Binding Value, StringFormat=' :  {0}%'}"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </ResourceDictionary>
+        </StackLayout.Resources>
+
+        <chart:SfChart
+            x:Name="Chart"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="Inflation - Consumer Price" />
+            </chart:SfChart.Title>
+            <chart:SfChart.ChartBehaviors>
+                <chart:ChartTooltipBehavior BackgroundColor="#404041" />
+                <chart:ChartZoomPanBehavior EnablePanning="True" />
+            </chart:SfChart.ChartBehaviors>
+            <chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis
+                    AxisLineOffset="10"
+                    PlotOffset="10"
+                    ShowMajorGridLines="false"
+                    ZoomFactor="0.5"
+                    ZoomPosition="0.5">
+                    <chart:CategoryAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="10" />
+                    </chart:CategoryAxis.MajorTickStyle>
+                </chart:CategoryAxis>
+            </chart:SfChart.PrimaryAxis>
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis
+                    Interval="20"
+                    Maximum="100"
+                    Minimum="0">
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle x:Name="secondaryAxisLabelStyle" />
+                    </chart:NumericalAxis.LabelStyle>
+                    <chart:NumericalAxis.AxisLineStyle>
+                        <chart:ChartLineStyle StrokeWidth="0" />
+                    </chart:NumericalAxis.AxisLineStyle>
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle TickSize="0" />
+                    </chart:NumericalAxis.MajorTickStyle>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+            <chart:SfChart.Legend>
+                <chart:ChartLegend
+                    x:Name="chartLegend"
+                    DockPosition="Bottom"
+                    IconHeight="14"
+                    IconWidth="14"
+                    ToggleSeriesVisibility="True" />
+            </chart:SfChart.Legend>
+            <chart:SfChart.ColorModel>
+                <chart:ChartColorModel Palette="Natural" />
+            </chart:SfChart.ColorModel>
+            <chart:SfChart.Series>
+
+                <chart:LineSeries
+                    x:Name="lineSeries1"
+                    EnableAnimation="false"
+                    EnableTooltip="true"
+                    ItemsSource="{Binding LineData1}"
+                    Label="Germany"
+                    LegendIcon="Circle"
+                    StrokeWidth="3"
+                    TooltipTemplate="{StaticResource toolTipTemplate1}"
+                    XBindingPath="Name"
+                    YBindingPath="Value">
+                    <chart:LineSeries.DataMarker>
+                        <chart:ChartDataMarker
+                            MarkerBorderColor="#00bdae"
+                            MarkerBorderWidth="2"
+                            MarkerColor="White"
+                            MarkerHeight="10"
+                            MarkerWidth="10"
+                            ShowLabel="false"
+                            ShowMarker="true" />
+                    </chart:LineSeries.DataMarker>
+                </chart:LineSeries>
+
+                <chart:LineSeries
+                    x:Name="lineSeries2"
+                    EnableAnimation="false"
+                    EnableTooltip="true"
+                    ItemsSource="{Binding LineData2}"
+                    Label="England"
+                    LegendIcon="Circle"
+                    StrokeWidth="3"
+                    TooltipTemplate="{StaticResource toolTipTemplate2}"
+                    XBindingPath="Name"
+                    YBindingPath="Value">
+                    <chart:LineSeries.DataMarker>
+                        <chart:ChartDataMarker
+                            MarkerBorderColor="#404041"
+                            MarkerBorderWidth="2"
+                            MarkerColor="White"
+                            MarkerHeight="10"
+                            MarkerWidth="10"
+                            ShowLabel="false"
+                            ShowMarker="true" />
+                    </chart:LineSeries.DataMarker>
+                </chart:LineSeries>
+
+                <chart:LineSeries
+                    x:Name="lineSeries3"
+                    EnableAnimation="false"
+                    EnableTooltip="true"
+                    ItemsSource="{Binding LineData3}"
+                    Label="France"
+                    LegendIcon="Circle"
+                    StrokeWidth="3"
+                    TooltipTemplate="{StaticResource toolTipTemplate3}"
+                    XBindingPath="Name"
+                    YBindingPath="Value">
+                    <chart:LineSeries.DataMarker>
+                        <chart:ChartDataMarker
+                            MarkerBorderColor="#477ccc"
+                            MarkerBorderWidth="2"
+                            MarkerColor="White"
+                            MarkerHeight="10"
+                            MarkerWidth="10"
+                            ShowLabel="false"
+                            ShowMarker="true" />
+                    </chart:LineSeries.DataMarker>
+                </chart:LineSeries>
+            </chart:SfChart.Series>
+        </chart:SfChart>
+    </StackLayout>
+
+    <!--<chart:SfChart>
+        <chart:SfChart.Title>
+            <chart:ChartTitle Text="Target vs Sale" />
+        </chart:SfChart.Title>
+
+        <chart:SfChart.Legend>
+            <chart:ChartLegend />
+        </chart:SfChart.Legend>
+
+        <chart:SfChart.PrimaryAxis>
+            <chart:CategoryAxis>
+                <chart:CategoryAxis.Title>
+                    <chart:ChartAxisTitle Text="Year" />
+                </chart:CategoryAxis.Title>
+            </chart:CategoryAxis>
+        </chart:SfChart.PrimaryAxis>
+
+        <chart:SfChart.SecondaryAxis>
+            <chart:NumericalAxis>
+                <chart:NumericalAxis.LabelStyle>
+                    <chart:ChartAxisLabelStyle LabelFormat="$###M" />
+                </chart:NumericalAxis.LabelStyle>
+            </chart:NumericalAxis>
+        </chart:SfChart.SecondaryAxis>
+
+        <chart:ColumnSeries
+            ItemsSource="{Binding ItemsData}"
+            Label="Target"
+            XBindingPath="Year"
+            YBindingPath="Target" />
+
+        <chart:ColumnSeries
+            ItemsSource="{Binding ItemsData}"
+            Label="Sale"
+            XBindingPath="Year"
+            YBindingPath="Sale" />
+    </chart:SfChart>-->
+</ContentPage>

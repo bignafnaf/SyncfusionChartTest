@@ -1,6 +1,5 @@
-﻿using System;
+﻿using SyncfusionChartTest.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SyncfusionChartTest
 {
@@ -10,7 +9,7 @@ namespace SyncfusionChartTest
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ChartView();
         }
 
         protected override void OnStart()
